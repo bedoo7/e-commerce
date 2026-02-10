@@ -16,28 +16,28 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/product/:id" element={<ProductDetail />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Layout>
-          </BrowserRouter>
-        </WishlistProvider>
-      </CartProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+	<QueryClientProvider client={queryClient}>
+		<TooltipProvider>
+			<CartProvider>
+				<WishlistProvider>
+					<Toaster />
+					<Sonner />
+					<BrowserRouter basename={import.meta.env.BASE_URL}>
+						<Layout>
+							<Routes>
+								<Route path="/" element={<Index />} />
+								<Route path="/product/:id" element={<ProductDetail />} />
+								<Route path="/cart" element={<Cart />} />
+								<Route path="/checkout" element={<Checkout />} />
+								<Route path="/wishlist" element={<Wishlist />} />
+								<Route path="*" element={<NotFound />} />
+							</Routes>
+						</Layout>
+					</BrowserRouter>
+				</WishlistProvider>
+			</CartProvider>
+		</TooltipProvider>
+	</QueryClientProvider>
 );
 
 export default App;
